@@ -9,6 +9,16 @@ const getInmuebles = async(req,res)=>{
     }
 };
 
+const getInmueblesById = async(req,res)=>{
+    try{
+        const{InmuebleId} = req.params;
+        const inmueble = await InmuebleModel.findById(InmuebleId);
+        res.json(inmueble);
+    }catch(error){
+        res.json({ fatal: error.message });
+    }
+}
+
 const createInmueble = async(req,res)=>{
     try{
         const result = await InmuebleModel.create(req.body);
@@ -38,4 +48,4 @@ const deleteInmueble = async(req,res) =>{
     }
 }
 
-module.exports = {getInmuebles,createInmueble,updateInmueble,deleteInmueble}
+module.exports = {getInmuebles,createInmueble,updateInmueble,deleteInmueble,getInmueblesById}
