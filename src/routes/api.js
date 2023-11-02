@@ -1,5 +1,5 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
-router.use('/inmuebles', require('./api/inmuebles'));
+router.use("/inmuebles", require("./api/inmuebles"));
 
 module.exports = router;
