@@ -13,7 +13,11 @@ const getInmueblesById = async (req, res) => {
   try {
     const { InmuebleId } = req.params;
     const inmueble = await InmuebleModel.findById(InmuebleId);
-    res.json(inmueble);
+    if (!inmueble) {
+      res.json({ fatal: "No existe el inmueble" });
+    } else {
+      res.json(inmueble);
+    }
   } catch (error) {
     res.json({ fatal: error.message });
   }
