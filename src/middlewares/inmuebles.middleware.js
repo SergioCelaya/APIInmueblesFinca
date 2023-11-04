@@ -1,5 +1,15 @@
 const InmuebleModel = require("../models/inmueble.model");
 
+/**
+ * Middleware para verificar la existencia de un inmueble por su ID en la base de datos.
+ * Este middleware busca un inmueble en la base de datos utilizando el ID proporcionado en los parámetros de la solicitud (req.params).
+ * Si el inmueble no se encuentra, responde con un mensaje de error.
+ *
+ * @param {object} req - Objeto de solicitud Express.js que debe contener el parámetro 'InmuebleId'.
+ * @param {object} res - Objeto de respuesta Express.js.
+ * @param {function} next - Función para pasar el control al siguiente middleware o ruta si el inmueble existe.
+ *
+ */
 const checkInmuebleId = async (req, res, next) => {
   const { InmuebleId } = req.params;
 
@@ -15,6 +25,15 @@ const checkInmuebleId = async (req, res, next) => {
   }
 };
 
+/**
+ * Middleware para verificar los valores en el cuerpo de la solicitud (req.body) relacionados con un inmueble.
+ * Este middleware se asegura de que los datos cumplan con ciertas condiciones antes de permitir que la solicitud continúe.
+ *
+ * @param {object} req - Objeto de solicitud Express.js.
+ * @param {object} res - Objeto de respuesta Express.js.
+ * @param {function} next - Función para pasar el control al siguiente middleware o ruta.
+ *
+ */
 const checkValoresBodyInmueble = (req, res, next) => {
   const body = req.body;
   if (isNaN(body[0].piso)) {

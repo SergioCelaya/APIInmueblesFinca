@@ -7,10 +7,10 @@ const {
   checkValoresBodyInmueble,
 } = require("../../middlewares/inmuebles.middleware");
 
-//GEt
+//GET
 router.get("/", InmueblesController.getInmuebles);
 router.get("/:InmuebleId", InmueblesController.getInmueblesById);
-//Post
+//POST
 router.post("/", checkValoresBodyInmueble, InmueblesController.createInmueble);
 //PUT
 router.put("/:InmuebleId", checkInmuebleId, InmueblesController.updateInmueble);
