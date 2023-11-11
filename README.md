@@ -1,4 +1,4 @@
-# API INMMUEBLES FINCA
+# API INMUEBLES FINCA
 
 ## Métodos disponibles
 
